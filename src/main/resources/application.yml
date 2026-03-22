@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: capacitacao-minsait
+
+
+  jpa:
+    database-platform: org.hibernate.dialect.OracleDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    url: ${URL_DB:jdbc:oracle:thin:@localhost:1521/XEPDB1}
+    username: ${USERNAME_DB:CMA}
+    password: ${PASSWORD_DB:CMA}
+    driverClassName: oracle.jdbc.OracleDriver
