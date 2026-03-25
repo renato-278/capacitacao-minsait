@@ -43,7 +43,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/atualiza")
-    public ResponseEntity<Produto> atualizarProduto(@RequestParam Long id, @RequestBody Produto produto) {
+    public ResponseEntity<Produto> atualizarProduto(@RequestBody Produto produto) {
         return ResponseEntity.ok(produtosService.atualizar(produto));
     }
 
