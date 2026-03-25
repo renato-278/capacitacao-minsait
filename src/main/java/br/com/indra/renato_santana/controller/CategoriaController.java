@@ -34,7 +34,6 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.atualizarCategoria(categoria));
     }
 
-
     @DeleteMapping("/deletaCategoria/{id}")
     public ResponseEntity<Void> deletarCategoria(@PathVariable Long id) {
         categoriaService.deletarCategoria(id);
