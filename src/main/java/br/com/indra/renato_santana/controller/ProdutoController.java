@@ -15,46 +15,46 @@ import java.util.List;
 @RequestMapping("/produtos")
 
 public class ProdutoController {
-    private final ProdutoService produtosService;
+    private final ProdutoService produtoService;
 
     @PostMapping("/cria")
     public ResponseEntity<Produto> criarProduto(@Valid @RequestBody Produto produto) {
-        return ResponseEntity.ok(produtosService.createProduto(produto));
+        return ResponseEntity.ok(produtoService.createProduto(produto));
     }
 
     @GetMapping
     public ResponseEntity<List<Produto>> getAll() {
-        return ResponseEntity.ok(produtosService.getAll());
+        return ResponseEntity.ok(produtoService.getAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Produto> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(produtosService.getById(id));
+        return ResponseEntity.ok(produtoService.getById(id));
     }
 
     @GetMapping("/nome/{nome}")
     public ResponseEntity<List<Produto>> buscarPorNome(@PathVariable String nome) {
-        return ResponseEntity.ok(produtosService.buscarPorNome(nome));
+        return ResponseEntity.ok(produtoService.buscarPorNome(nome));
     }
 
     @GetMapping("/categoria/{id}")
     public ResponseEntity<List<Produto>> buscarPorCategoria(@PathVariable Long id) {
-        return ResponseEntity.ok(produtosService.buscarPorCategoria(id));
+        return ResponseEntity.ok(produtoService.buscarPorCategoria(id));
     }
 
     @PutMapping("/atualiza")
     public ResponseEntity<Produto> atualizarProduto(@RequestBody Produto produto) {
-        return ResponseEntity.ok(produtosService.atualizar(produto));
+        return ResponseEntity.ok(produtoService.atualizar(produto));
     }
 
     @PatchMapping("/atualiza-preco/{id}")
     public ResponseEntity<Produto> atualizarProdutoParcial(@PathVariable Long id, @RequestParam BigDecimal preco) {
-        return ResponseEntity.ok(produtosService.atualizaPreco(id, preco));
+        return ResponseEntity.ok(produtoService.atualizaPreco(id, preco));
     }
 
     @DeleteMapping("/deleta/{id}")
     public ResponseEntity<Void> deletarProduto(@PathVariable Long id) {
-        produtosService.deletarProduto(id);
+        produtoService.deletarProduto(id);
         return ResponseEntity.noContent().build();
     }
 }
